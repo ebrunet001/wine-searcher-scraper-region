@@ -1,0 +1,110 @@
+=== PAGES CRAWLÉES POUR BURGUNDY ===
+
+Run ID: k364gcdBO2wzEriCf
+Date: 2026-02-05
+Total pages crawlées: 102
+Total vins extraits: 1907
+
+=== LISTE DES RÉGIONS CRAWLÉES ===
+Aloxe-Corton
+Aloxe-Corton Premier Cru
+Auxey-Duresses
+Beaune
+Blagny
+Bourgogne
+Bourgogne Aligote
+Bourgogne Blanc
+Bourgogne Chitry
+Bourgogne Cote Chalonnaise
+Bourgogne Cote D%27Or
+Bourgogne Cote Du Couchois
+Bourgogne Cote Saint-Jacques
+Bourgogne Cotes D%27Auxerre
+Bourgogne Coulanges-La-Vineuse
+Bourgogne Epineuil
+Bourgogne Gamay
+Bourgogne Hautes Cotes De Beaune
+Bourgogne Hautes Cotes De Nuits
+Bourgogne La Chapelle Notre-Dame
+Bourgogne Le Chapitre
+Bourgogne Montrecul
+Bourgogne Mousseux
+Bourgogne Passe-Tout-Grains
+Bourgogne Rose-Clairet
+Bourgogne Rouge
+Bourgogne Tonnerre
+Bouzeron
+Burgundy
+Chablis
+Chablis Grand Cru
+Chablis Premier Cru
+Chablisien
+Chambolle-Musigny
+Chassagne-Montrachet
+Chorey-Les-Beaune
+Clos De Vougeot
+Corton Grand Cru
+Corton Les Renardes
+Corton-Charlemagne
+Cote Chalonnaise
+Cote De Beaune
+Cote De Beaune-Villages
+Cote De Nuits
+Cote De Nuits-Villages
+Coteaux Bourguignons
+Cremant De Bourgogne
+Eau-De-Vie De Fine De Bourgogne
+Eau-De-Vie De Marc De Bourgogne
+Fixin
+Flagey-Echezeaux
+Gevrey-Chambertin
+Givry
+Grand Auxerrois
+Grands-Echezeaux
+Igp Coteaux De L%27Auxois
+Igp Sainte-Marie-La-Blanche
+Irancy
+Ladoix
+Ladoix Basses Mourottes
+Ladoix Hautes Mourottes
+Ladoix Le Rognet Et Corton
+Macon
+Macon-Villages
+Maconnais
+Maranges
+Marsannay
+Mercurey
+Meursault
+Montagny
+Monthelie
+Montrachet
+Morey-Saint-Denis
+Morey-Saint-Denis Monts Luisants
+Musigny
+Nuits-Saint-Georges
+Pernand-Vergelesses
+Petit Chablis
+Pommard
+Pommard Epenots
+Pommard Le Clos Micot
+Pommard Les Rugiens
+Pommard Premier Cru
+Pouilly-Fuisse
+Pouilly-Fuisse Premier Cru
+Pouilly-Loche
+Pouilly-Vinzelles
+Puligny-Montrachet
+Rully
+Saint-Aubin
+Saint-Bris
+Saint-Romain
+Saint-Veran
+Santenay
+Savigny-Les-Beaune
+Vezelay
+Vire-Clesse
+Volnay
+Vosne-Romanee
+Vougeot
+Vougeot Le Clos Blanc
+Vougeot Premier Cru

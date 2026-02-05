@@ -1,0 +1,99 @@
+=== PAGES CRAWLÉES POUR CHAMPAGNE ===
+
+Run ID: 4nmShTtyZEI8UysQj
+Date: 2026-02-05
+Total pages crawlées: 84
+Total vins extraits: 1613
+
+=== RÉPARTITION PAR PROFONDEUR ===
+  Depth 0: 1 pages
+  Depth 1: 13 pages
+  Depth 2: 3 pages
+  Depth 3: 31 pages
+  Depth 4: 36 pages
+
+=== LISTE DES RÉGIONS CRAWLÉES ===
+Armagnac
+Beaujolais Blanc
+Beaujolais Nouveau
+Beaujolais Villages
+Bergerac
+Blanquette De Limoux Methode Ancestrale
+Bourgogne
+Bourgogne Passe-Tout-Grains
+Brouilly
+Bugey
+Bugey Cerdon
+Bugey Manicle
+Bugey Montagnieu
+Burgundy
+Burgundy %5Bbourgogne%5D
+Champagne
+Champagne Blanc De Blancs
+Champagne Blanc De Noirs
+Champagne Brut
+Champagne Brut Nature - Zero
+Champagne Demi-Sec
+Champagne Doux
+Champagne Extra Brut
+Champagne Extra Dry
+Champagne Rose
+Champagne Sec
+Chenas
+Chiroubles
+Clairette De Die Tradition
+Cognac
+Cognac Bois Ordinaires
+Cognac Bons Bois
+Cognac Borderies
+Cognac Fine Champagne
+Cognac Fins Bois
+Cognac Grande Champagne
+Cognac Grande Fine Champagne
+Cognac Petite Champagne
+Cognac Petite Fine Champagne
+Cote De Brouilly
+Coteaux Bourguignons
+Coteaux Champenois
+Cremant De Bourgogne
+Esprit De Cognac
+Fiefs Vendeens
+Fleurie
+Floc De Gascogne
+Igp Charentais
+Julienas
+Macon
+Macon Aze
+Macon Bray
+Macon Burgy
+Macon Bussieres
+Macon Chaintre
+Macon Chardonnay
+Macon Cruzille
+Macon Davaye
+Macon Ige
+Macon Loche
+Macon Lugny
+Macon Mancey
+Macon Montbellet
+Macon Peronne
+Macon Pierreclos
+Macon Prisse
+Macon Saint-Gengoux
+Macon Serrieres
+Macon Solutre-Pouilly
+Macon Verze
+Macon Vinzelles
+Macvin Du Jura
+Marc De Champagne
+Medoc
+Morgon
+Moulin-A-Vent
+Pineau Des Charentes
+Pouilly-Fuisse
+Regnie
+Rose Des Riceys
+Roussette Du Bugey
+Saint-Amour
+Ventoux
+Vin De France - Vin De Table

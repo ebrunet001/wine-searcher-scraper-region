@@ -176,48 +176,53 @@ class WineSearcherScraper:
 
         return wines
 
+    def _extract_breadcrumbs(self, html: str) -> list[str]:
+        """Extract breadcrumb hierarchy from the page.
+
+        Returns a list of region names in the hierarchy, e.g.:
+        ['France', 'Burgundy', 'Cote de Beaune', 'Chassagne-Montrachet']
+        """
+        soup = BeautifulSoup(html, 'lxml')
+        breadcrumbs = []
+
+        # Find the breadcrumb element (ol with class 'breadcrumb')
+        breadcrumb_list = soup.find('ol', class_='breadcrumb')
+        if breadcrumb_list:
+            for item in breadcrumb_list.find_all('li'):
+                text = item.get_text(strip=True)
+                if text and text not in ['Home', 'Regions']:
+                    breadcrumbs.append(text)
+
+        return breadcrumbs
+
     def _extract_sub_regions(self, html: str, current_url: str) -> list[str]:
-        """Extract sub-region URLs from the page, filtering out major non-related regions."""
+        """Extract sub-region URLs from the page using the sub-menu section only.
+
+        This method extracts links only from elements with class 'sub-menu__item',
+        which contain the true hierarchical sub-regions of the current region.
+        Navigation links and unrelated regions are automatically excluded.
+        """
         sub_regions = []
         soup = BeautifulSoup(html, 'lxml')
 
-        # Major world/country/top-level regions to exclude (navigation links)
-        EXCLUDED_REGIONS = {
-            # Countries
-            'france', 'italy', 'spain', 'portugal', 'germany', 'austria',
-            'usa', 'australia', 'chile', 'argentina', 'new+zealand', 'south+africa',
-            'greece', 'hungary', 'england', 'canada', 'mexico', 'brazil',
-            # Major French regions (not sub-regions of Burgundy)
-            'loire', 'rhone', 'bordeaux', 'champagne', 'alsace', 'provence',
-            'languedoc', 'roussillon', 'southwest+france', 'jura', 'savoie',
-            'corsica', 'beaujolais',
-            # Major Italian regions
-            'tuscany', 'piedmont', 'veneto', 'sicily', 'lombardy',
-            # Major Spanish regions
-            'rioja', 'ribera+del+duero', 'priorat', 'catalonia',
-            # Other major regions
-            'california', 'oregon', 'washington', 'napa+valley', 'sonoma',
-            'barossa', 'marlborough', 'stellenbosch', 'mendoza',
-        }
+        # Only extract region links from sub-menu__item elements (true sub-regions)
+        sub_menu_items = soup.find_all(class_='sub-menu__item')
 
-        region_links = soup.find_all('a', href=re.compile(r'^/regions-[a-zA-Z0-9%+\-]+$'))
+        for item in sub_menu_items:
+            # Find region links within this sub-menu item
+            region_links = item.find_all('a', href=re.compile(r'^/regions-[a-zA-Z0-9%+\-]+$'))
 
-        for link in region_links:
-            href = link.get('href', '')
-            full_url = urljoin(self.BASE_URL, href)
-            link_region = href.replace('/regions-', '').lower()
+            for link in region_links:
+                href = link.get('href', '')
+                full_url = urljoin(self.BASE_URL, href)
 
-            # Skip if already visited or is the root regions page
-            if full_url in self.visited_regions:
-                continue
-            if href == '/regions':
-                continue
+                # Skip if already visited or is the root regions page
+                if full_url in self.visited_regions:
+                    continue
+                if href == '/regions':
+                    continue
 
-            # Skip excluded major regions
-            if link_region in EXCLUDED_REGIONS:
-                continue
-
-            sub_regions.append(full_url)
+                sub_regions.append(full_url)
 
         return list(set(sub_regions))
 
@@ -282,19 +287,24 @@ class WineSearcherScraper:
                 await asyncio.sleep(5 * (attempt + 1))
         return None
 
-    async def _scrape_region(self, base_url: str, client: httpx.AsyncClient) -> tuple[list[WineData], list[str]]:
-        """Scrape a single region page."""
+    async def _scrape_region(self, base_url: str, client: httpx.AsyncClient) -> tuple[list[WineData], list[str], list[str]]:
+        """Scrape a single region page.
+
+        Returns:
+            tuple: (wines, sub_regions, breadcrumbs)
+        """
         url = f"{base_url}?tab_F={self.tab_filter}"
 
         html = await self._fetch_with_retry(url, client)
         if not html:
             Actor.log.warning(f"Failed to fetch region")
-            return [], []
+            return [], [], []
 
         wines = self._parse_wine_table(html, url)
         sub_regions = self._extract_sub_regions(html, url)
+        breadcrumbs = self._extract_breadcrumbs(html)
 
-        return wines, sub_regions
+        return wines, sub_regions, breadcrumbs
 
     async def run(self) -> int:
         """Run the scraper using SuperScraper API."""
@@ -320,7 +330,11 @@ class WineSearcherScraper:
                 region_name = self._extract_region_name(url)
                 Actor.log.info(f"Scraping region: {region_name} (depth: {depth})")
 
-                wines, sub_regions = await self._scrape_region(base_url, client)
+                wines, sub_regions, breadcrumbs = await self._scrape_region(base_url, client)
+
+                # Log breadcrumbs for hierarchy tracking
+                if breadcrumbs:
+                    Actor.log.info(f"  Hierarchy: {' > '.join(breadcrumbs)}")
 
                 Actor.log.info(f"  Found {len(wines)} new wines")
 
