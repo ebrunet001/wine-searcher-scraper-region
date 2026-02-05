@@ -1,0 +1,63 @@
+=== CHAMPAGNE SCRAPING v2 (build 0.1.15) ===
+
+Run ID: 4aRxshgCkyNSfgDRJ
+Date: 2026-02-05
+Build: 0.1.15 (breadcrumbs + sub-menu__item)
+Total pages crawlées: 54
+Total vins extraits: 1174
+
+=== RÉGIONS CHAMPAGNE ===
+France > Champagne
+France > Champagne > Champagne Blanc de Blancs
+France > Champagne > Champagne Blanc de Noirs
+France > Champagne > Champagne Brut
+France > Champagne > Champagne Brut Nature - Zero
+France > Champagne > Champagne Demi-Sec
+France > Champagne > Champagne Doux
+France > Champagne > Champagne Extra Brut
+France > Champagne > Champagne Extra Dry
+France > Champagne > Champagne Rose
+France > Champagne > Champagne Sec
+France > Champagne > Coteaux Champenois
+France > Champagne > Marc de Champagne
+France > Champagne > Rose des Riceys
+
+=== RÉGIONS NON-CHAMPAGNE (dérive) ===
+France
+France > Armagnac
+France > Beaujolais
+France > Bordeaux
+France > Brittany
+France > Burgundy
+France > Burgundy > Chablisien
+France > Burgundy > Cote Chalonnaise
+France > Burgundy > Cote de Beaune
+France > Burgundy > Cote de Nuits
+France > Burgundy > Eau-de-Vie de Fine de Bourgogne
+France > Burgundy > Grand Auxerrois
+France > Burgundy > Maconnais
+France > Cognac
+France > Corsica
+France > Coteaux du Lyonnais
+France > Jura
+France > Languedoc-Roussillon
+France > Loire
+France > Loire > Anjou
+France > Loire > Auvergne
+France > Loire > Cremant de Loire
+France > Loire > Pays Nantais - Muscadet
+France > Loire > Rose de Loire
+France > Loire > Touraine
+France > Loire > Upper Loire
+France > Loire > Vendee-Poitou
+France > Loire > Vendomois
+France > Moselle
+France > Normandy
+France > Normandy > Calvados
+France > Normandy > Normandy Cider
+France > Provence
+France > Rhone
+France > Savoie
+France > South West France
+France > Vin de France - Vin de Table
+France > Vin de Pays - IGP
