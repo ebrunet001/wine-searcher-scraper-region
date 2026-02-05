@@ -43,12 +43,14 @@ class WineSearcherScraper:
         start_url: str,
         scrape_sub_regions: bool = True,
         max_depth: int = 10,
+        max_pages_per_region: int = 20,
         tab_filter: str = "mostpopular",
         request_timeout: int = 120,
     ):
         self.start_url = start_url
         self.scrape_sub_regions = scrape_sub_regions
         self.max_depth = max_depth
+        self.max_pages_per_region = max_pages_per_region
         self.tab_filter = tab_filter
         self.request_timeout = request_timeout
 
@@ -310,24 +312,75 @@ class WineSearcherScraper:
                 await asyncio.sleep(5 * (attempt + 1))
         return None
 
-    async def _scrape_region(self, base_url: str, client: httpx.AsyncClient) -> tuple[list[WineData], list[str], list[str]]:
-        """Scrape a single region page.
+    async def _fetch_first_page(self, base_url: str, client: httpx.AsyncClient) -> tuple[str, list[str], list[str]]:
+        """Fetch only the first page to get breadcrumbs for validation.
 
         Returns:
-            tuple: (wines, sub_regions, breadcrumbs)
+            tuple: (html, sub_regions, breadcrumbs)
         """
         url = f"{base_url}?tab_F={self.tab_filter}"
-
         html = await self._fetch_with_retry(url, client)
-        if not html:
-            Actor.log.warning(f"Failed to fetch region")
-            return [], [], []
 
-        wines = self._parse_wine_table(html, url)
+        if not html:
+            return "", [], []
+
         sub_regions = self._extract_sub_regions(html, url)
         breadcrumbs = self._extract_breadcrumbs(html)
 
-        return wines, sub_regions, breadcrumbs
+        return html, sub_regions, breadcrumbs
+
+    async def _scrape_region_pages(self, base_url: str, first_page_html: str, client: httpx.AsyncClient, max_pages: int = 20) -> list[WineData]:
+        """Scrape all pages of a region (pagination).
+
+        Wine-Searcher uses pagination with 25 wines per page:
+        - Page 1: /regions-champagne
+        - Page 2: /regions-champagne/26
+        - Page 3: /regions-champagne/51
+        - etc.
+
+        Args:
+            base_url: Base URL of the region
+            first_page_html: Already fetched HTML from page 1
+            client: HTTP client
+            max_pages: Maximum number of pages to scrape
+
+        Returns:
+            list: All wines from all pages
+        """
+        all_wines = []
+
+        # Parse page 1 (already fetched)
+        url = f"{base_url}?tab_F={self.tab_filter}"
+        wines = self._parse_wine_table(first_page_html, url)
+        if wines:
+            all_wines.extend(wines)
+            Actor.log.info(f"  Page 1: {len(wines)} wines (total: {len(all_wines)})")
+
+        # Scrape remaining pages
+        for page in range(2, max_pages + 1):
+            offset = 1 + 25 * (page - 1)  # 26, 51, 76, 101...
+            url = f"{base_url}/{offset}?tab_F={self.tab_filter}"
+
+            html = await self._fetch_with_retry(url, client)
+            if not html:
+                Actor.log.warning(f"Failed to fetch page {page}")
+                break
+
+            # Parse wines from this page
+            wines = self._parse_wine_table(html, url)
+
+            # If no new wines found, we've reached the end
+            if not wines:
+                Actor.log.debug(f"  No more wines on page {page}, stopping pagination")
+                break
+
+            all_wines.extend(wines)
+            Actor.log.info(f"  Page {page}: {len(wines)} wines (total: {len(all_wines)})")
+
+            # Small delay between pages
+            await asyncio.sleep(1)
+
+        return all_wines
 
     async def run(self) -> int:
         """Run the scraper using SuperScraper API."""
@@ -335,6 +388,7 @@ class WineSearcherScraper:
         Actor.log.info(f"  Start URL: {self.start_url}")
         Actor.log.info(f"  Scrape sub-regions: {self.scrape_sub_regions}")
         Actor.log.info(f"  Max depth: {self.max_depth}")
+        Actor.log.info(f"  Max pages per region: {self.max_pages_per_region}")
         Actor.log.info(f"  Tab filter: {self.tab_filter}")
 
         async with httpx.AsyncClient() as client:
@@ -353,7 +407,12 @@ class WineSearcherScraper:
                 region_name = self._extract_region_name(url)
                 Actor.log.info(f"Scraping region: {region_name} (depth: {depth})")
 
-                wines, sub_regions, breadcrumbs = await self._scrape_region(base_url, client)
+                # Step 1: Fetch only first page to get breadcrumbs for validation
+                first_page_html, sub_regions, breadcrumbs = await self._fetch_first_page(base_url, client)
+
+                if not first_page_html:
+                    Actor.log.warning(f"  Failed to fetch region")
+                    continue
 
                 # Log breadcrumbs for hierarchy tracking
                 if breadcrumbs:
@@ -365,13 +424,16 @@ class WineSearcherScraper:
                     self.root_region = breadcrumbs[-1] if breadcrumbs else ""
                     Actor.log.info(f"  Root region set to: {self.root_region}")
 
-                # Check if this page belongs to the root region's hierarchy
+                # Step 2: Check if this page belongs to the root region's hierarchy BEFORE scraping
                 if depth > 0 and not self._is_valid_subregion(breadcrumbs):
                     Actor.log.warning(f"  SKIPPED: Not a sub-region of {self.root_region}")
                     self.skipped_regions += 1
                     continue
 
-                Actor.log.info(f"  Found {len(wines)} new wines")
+                # Step 3: If valid, scrape all pages with pagination
+                wines = await self._scrape_region_pages(base_url, first_page_html, client, self.max_pages_per_region)
+
+                Actor.log.info(f"  Total: {len(wines)} wines from this region")
 
                 if wines:
                     wine_dicts = [asdict(w) for w in wines]
@@ -409,6 +471,7 @@ async def main():
         start_url = actor_input.get('startUrl', 'https://www.wine-searcher.com/regions-burgundy')
         scrape_sub_regions = actor_input.get('scrapeSubRegions', True)
         max_depth = actor_input.get('maxDepth', 10)
+        max_pages_per_region = actor_input.get('maxPagesPerRegion', 20)
         tab_filter = actor_input.get('tabFilter', 'mostpopular')
         request_timeout = actor_input.get('requestTimeout', 120)
 
@@ -422,6 +485,7 @@ async def main():
             start_url=start_url,
             scrape_sub_regions=scrape_sub_regions,
             max_depth=max_depth,
+            max_pages_per_region=max_pages_per_region,
             tab_filter=tab_filter,
             request_timeout=request_timeout,
         )

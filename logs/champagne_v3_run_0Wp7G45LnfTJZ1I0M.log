@@ -1,0 +1,191 @@
+Répertoire créé: Champagne_20260205_203812
+Scraping lancé avec build 0.1.18 (validation AVANT pagination)...
+Run: Calling Actor scrapmania/wine-searcher-scraper (cLCvbvUnes441I1SY)
+
+Started: 2026-02-05 at 20:38:15
+Container URL: https://mnawdmnhmtna.runs.apify.net
+Build: 0.1.18 (latest) | Actor version: 0.1 (latest)
+Timeout: 7,200 seconds
+Memory: 4096 MB
+View on Apify Console: https://console.apify.com/actors/cLCvbvUnes441I1SY/runs/0Wp7G45LnfTJZ1I0M
+
+2026-02-05T19:38:16.193Z ACTOR: Pulling container image of build YZ4uGtUXQB7r07ReS from registry.
+2026-02-05T19:38:16.948Z ACTOR: Creating container.
+2026-02-05T19:38:17.018Z ACTOR: Starting container.
+2026-02-05T19:38:17.019Z ACTOR: Running under "LIMITED_PERMISSIONS" permission level.
+2026-02-05T19:38:18.114Z [apify._configuration] WARN  Actor is running on the Apify platform, `disable_browser_sandbox` was changed to True.
+2026-02-05T19:38:18.117Z [apify] INFO  Initializing Actor ({"apify_sdk_version": "3.1.0", "apify_client_version": "2.3.0", "crawlee_version": "1.1.1", "python_version": "3.11.14", "os": "linux"})
+2026-02-05T19:38:18.317Z [apify] INFO  Starting Wine-Searcher scraper (SuperScraper API)
+2026-02-05T19:38:18.318Z [apify] INFO    Start URL: https://www.wine-searcher.com/regions-champagne
+2026-02-05T19:38:18.318Z [apify] INFO    Scrape sub-regions: True
+2026-02-05T19:38:18.319Z [apify] INFO    Max depth: 10
+2026-02-05T19:38:18.319Z [apify] INFO    Max pages per region: 20
+2026-02-05T19:38:18.320Z [apify] INFO    Tab filter: mostpopular
+2026-02-05T19:38:18.382Z [apify] INFO  Scraping region: Champagne (depth: 0)
+2026-02-05T19:38:30.967Z [apify] INFO    Hierarchy: France > Champagne
+2026-02-05T19:38:30.968Z [apify] INFO    Root region set to: Champagne
+2026-02-05T19:38:31.200Z [apify] INFO    Page 1: 42 wines (total: 42)
+2026-02-05T19:39:01.959Z [apify] INFO    Page 2: 25 wines (total: 67)
+2026-02-05T19:39:28.168Z [apify] INFO    Page 3: 24 wines (total: 91)
+2026-02-05T19:39:57.871Z [apify] INFO    Page 4: 25 wines (total: 116)
+2026-02-05T19:40:22.165Z [apify] INFO    Page 5: 25 wines (total: 141)
+2026-02-05T19:40:44.094Z [apify] INFO    Page 6: 25 wines (total: 166)
+2026-02-05T19:41:00.698Z [apify] INFO    Page 7: 25 wines (total: 191)
+2026-02-05T19:41:38.162Z [apify] INFO    Page 8: 25 wines (total: 216)
+2026-02-05T19:41:57.007Z [apify] INFO    Page 9: 25 wines (total: 241)
+2026-02-05T19:42:32.965Z [apify] INFO    Page 10: 25 wines (total: 266)
+2026-02-05T19:43:00.863Z [apify] INFO    Page 11: 25 wines (total: 291)
+2026-02-05T19:43:25.481Z [apify] INFO    Page 12: 25 wines (total: 316)
+2026-02-05T19:43:51.626Z [apify] INFO    Page 13: 25 wines (total: 341)
+2026-02-05T19:44:24.075Z [apify] INFO    Page 14: 25 wines (total: 366)
+2026-02-05T19:44:34.087Z [apify] INFO    Page 15: 25 wines (total: 391)
+2026-02-05T19:44:58.965Z [apify] INFO    Page 16: 25 wines (total: 416)
+2026-02-05T19:45:24.585Z [apify] INFO    Page 17: 25 wines (total: 441)
+2026-02-05T19:45:43.959Z [apify] INFO    Page 18: 25 wines (total: 466)
+2026-02-05T19:46:10.087Z [apify] INFO    Page 19: 25 wines (total: 491)
+2026-02-05T19:46:38.559Z [apify] INFO    Page 20: 25 wines (total: 516)
+2026-02-05T19:46:39.560Z [apify] INFO    Total: 516 wines from this region
+2026-02-05T19:46:39.784Z [apify] INFO    Found 14 new sub-regions
+2026-02-05T19:46:41.786Z [apify] INFO  Scraping region: Coteaux Champenois (depth: 1)
+2026-02-05T19:47:17.129Z [apify] INFO    Hierarchy: France > Champagne > Coteaux Champenois
+2026-02-05T19:47:17.212Z [apify] INFO    Page 1: 22 wines (total: 22)
+2026-02-05T19:48:50.929Z [apify] INFO    Page 2: 25 wines (total: 47)
+2026-02-05T19:49:16.684Z [apify] INFO    Page 3: 25 wines (total: 72)
+2026-02-05T19:49:47.441Z [apify] INFO    Page 4: 25 wines (total: 97)
+2026-02-05T19:50:14.674Z [apify] INFO    Page 5: 25 wines (total: 122)
+2026-02-05T19:50:54.545Z [apify] INFO    Page 6: 25 wines (total: 147)
+2026-02-05T19:51:44.477Z [apify] INFO    Page 7: 25 wines (total: 172)
+2026-02-05T19:52:05.121Z [apify] INFO    Page 8: 25 wines (total: 197)
+2026-02-05T19:52:36.679Z [apify] INFO    Page 9: 24 wines (total: 221)
+2026-02-05T19:54:42.620Z [apify] WARN  SuperScraper returned status 500
+2026-02-05T19:54:42.621Z [apify] WARN  Attempt 1 failed, retrying...
+2026-02-05T19:55:00.567Z [apify] INFO    Page 10: 24 wines (total: 245)
+2026-02-05T19:55:32.741Z [apify] INFO    Page 11: 25 wines (total: 270)
+2026-02-05T19:55:59.725Z [apify] INFO    Page 12: 25 wines (total: 295)
+2026-02-05T19:56:47.526Z [apify] INFO    Page 13: 3 wines (total: 298)
+2026-02-05T19:57:26.629Z [apify] INFO    Total: 298 wines from this region
+2026-02-05T19:57:26.769Z [apify] INFO    Found 12 new sub-regions
+2026-02-05T19:57:28.771Z [apify] INFO  Scraping region: France (depth: 1)
+2026-02-05T19:57:53.907Z [apify] INFO    Hierarchy: France
+2026-02-05T19:57:53.908Z [apify] WARN    SKIPPED: Not a sub-region of Champagne
+2026-02-05T19:57:53.909Z [apify] INFO  Scraping region: Marc De Champagne (depth: 1)
+2026-02-05T19:58:11.993Z [apify] INFO    Hierarchy: France > Champagne > Marc de Champagne
+2026-02-05T19:58:12.238Z [apify] INFO    Page 1: 24 wines (total: 24)
+2026-02-05T19:59:05.282Z [apify] WARN  SuperScraper returned status 500
+2026-02-05T19:59:05.283Z [apify] WARN  Attempt 1 failed, retrying...
+2026-02-05T20:00:13.185Z [apify] WARN  SuperScraper returned status 500
+2026-02-05T20:00:13.186Z [apify] WARN  Attempt 2 failed, retrying...
+2026-02-05T20:00:43.197Z [apify] INFO    Total: 24 wines from this region
+2026-02-05T20:00:43.255Z [apify] INFO    Found 11 new sub-regions
+2026-02-05T20:00:45.258Z [apify] INFO  Scraping region: Rose Des Riceys (depth: 1)
+2026-02-05T20:01:24.100Z [apify] INFO    Hierarchy: France > Champagne > Rose des Riceys
+2026-02-05T20:01:24.199Z [apify] INFO    Page 1: 12 wines (total: 12)
+2026-02-05T20:01:56.903Z [apify] INFO    Total: 12 wines from this region
+2026-02-05T20:01:56.942Z [apify] INFO    Found 10 new sub-regions
+2026-02-05T20:01:58.944Z [apify] INFO  Scraping region: Champagne Demi-Sec (depth: 1)
+2026-02-05T20:03:08.925Z [apify] INFO    Hierarchy: France > Champagne > Champagne Demi-Sec
+2026-02-05T20:03:09.058Z [apify] INFO    Page 1: 22 wines (total: 22)
+2026-02-05T20:03:57.802Z [apify] INFO    Page 2: 25 wines (total: 47)
+2026-02-05T20:04:37.043Z [apify] INFO    Page 3: 25 wines (total: 72)
+2026-02-05T20:05:20.866Z [apify] INFO    Page 4: 25 wines (total: 97)
+2026-02-05T20:05:45.772Z [apify] INFO    Page 5: 25 wines (total: 122)
+2026-02-05T20:06:03.572Z [apify] INFO    Page 6: 24 wines (total: 146)
+2026-02-05T20:06:35.527Z [apify] INFO    Page 7: 24 wines (total: 170)
+2026-02-05T20:07:18.102Z [apify] WARN  SuperScraper returned status 500
+2026-02-05T20:07:18.103Z [apify] WARN  Attempt 1 failed, retrying...
+2026-02-05T20:07:50.813Z [apify] INFO    Total: 170 wines from this region
+2026-02-05T20:07:50.909Z [apify] INFO    Found 9 new sub-regions
+2026-02-05T20:07:52.909Z [apify] INFO  Scraping region: Champagne Sec (depth: 1)
+2026-02-05T20:08:25.469Z [apify] INFO    Hierarchy: France > Champagne > Champagne Sec
+2026-02-05T20:08:25.566Z [apify] INFO    Page 1: 24 wines (total: 24)
+2026-02-05T20:09:00.036Z [apify] INFO    Page 2: 1 wines (total: 25)
+2026-02-05T20:09:23.017Z [apify] INFO    Total: 25 wines from this region
+2026-02-05T20:09:23.052Z [apify] INFO    Found 8 new sub-regions
+2026-02-05T20:09:25.053Z [apify] INFO  Scraping region: Champagne Blanc De Noirs (depth: 1)
+2026-02-05T20:09:45.819Z [apify] INFO    Hierarchy: France > Champagne > Champagne Blanc de Noirs
+2026-02-05T20:09:45.872Z [apify] INFO    Page 1: 3 wines (total: 3)
+2026-02-05T20:10:17.164Z [apify] INFO    Page 2: 24 wines (total: 27)
+2026-02-05T20:10:52.362Z [apify] INFO    Page 3: 24 wines (total: 51)
+2026-02-05T20:11:24.282Z [apify] INFO    Page 4: 25 wines (total: 76)
+2026-02-05T20:11:40.752Z [apify] INFO    Page 5: 25 wines (total: 101)
+2026-02-05T20:12:10.168Z [apify] INFO    Page 6: 24 wines (total: 125)
+2026-02-05T20:12:44.566Z [apify] INFO    Page 7: 25 wines (total: 150)
+2026-02-05T20:13:30.764Z [apify] INFO    Page 8: 25 wines (total: 175)
+2026-02-05T20:13:57.582Z [apify] INFO    Page 9: 25 wines (total: 200)
+2026-02-05T20:14:18.427Z [apify] INFO    Page 10: 25 wines (total: 225)
+2026-02-05T20:14:51.313Z [apify] INFO    Page 11: 24 wines (total: 249)
+2026-02-05T20:15:33.126Z [apify] INFO    Page 12: 25 wines (total: 274)
+2026-02-05T20:16:06.691Z [apify] INFO    Page 13: 25 wines (total: 299)
+2026-02-05T20:16:31.121Z [apify] INFO    Page 14: 25 wines (total: 324)
+2026-02-05T20:17:00.693Z [apify] INFO    Page 15: 25 wines (total: 349)
+2026-02-05T20:17:46.583Z [apify] INFO    Page 16: 25 wines (total: 374)
+2026-02-05T20:18:11.550Z [apify] INFO    Page 17: 25 wines (total: 399)
+2026-02-05T20:18:38.385Z [apify] INFO    Page 18: 25 wines (total: 424)
+2026-02-05T20:18:55.528Z [apify] INFO    Page 19: 25 wines (total: 449)
+2026-02-05T20:19:25.036Z [apify] INFO    Page 20: 25 wines (total: 474)
+2026-02-05T20:19:26.038Z [apify] INFO    Total: 474 wines from this region
+2026-02-05T20:19:26.150Z [apify] INFO    Found 7 new sub-regions
+2026-02-05T20:19:28.151Z [apify] INFO  Scraping region: Champagne Extra Dry (depth: 1)
+2026-02-05T20:19:50.508Z [apify] INFO    Hierarchy: France > Champagne > Champagne Extra Dry
+2026-02-05T20:19:50.608Z [apify] INFO    Page 1: 22 wines (total: 22)
+2026-02-05T20:20:17.939Z [apify] INFO    Total: 22 wines from this region
+2026-02-05T20:20:18.006Z [apify] INFO    Found 6 new sub-regions
+2026-02-05T20:20:20.008Z [apify] INFO  Scraping region: Champagne Brut Nature - Zero (depth: 1)
+2026-02-05T20:20:45.269Z [apify] INFO    Hierarchy: France > Champagne > Champagne Brut Nature - Zero
+2026-02-05T20:21:15.789Z [apify] INFO    Page 2: 24 wines (total: 24)
+2026-02-05T20:21:40.319Z [apify] INFO    Page 3: 25 wines (total: 49)
+2026-02-05T20:22:13.318Z [apify] INFO    Page 4: 25 wines (total: 74)
+2026-02-05T20:22:36.289Z [apify] INFO    Page 5: 25 wines (total: 99)
+2026-02-05T20:23:04.824Z [apify] INFO    Page 6: 25 wines (total: 124)
+2026-02-05T20:23:53.630Z [apify] INFO    Page 7: 25 wines (total: 149)
+2026-02-05T20:25:04.862Z [apify] INFO    Page 8: 25 wines (total: 174)
+2026-02-05T20:25:34.392Z [apify] INFO    Page 9: 25 wines (total: 199)
+2026-02-05T20:25:59.328Z [apify] INFO    Page 10: 25 wines (total: 224)
+2026-02-05T20:26:15.501Z [apify] INFO    Page 11: 25 wines (total: 249)
+2026-02-05T20:26:52.061Z [apify] INFO    Page 12: 25 wines (total: 274)
+2026-02-05T20:27:07.208Z [apify] INFO    Page 13: 25 wines (total: 299)
+2026-02-05T20:27:41.124Z [apify] INFO    Page 14: 25 wines (total: 324)
+2026-02-05T20:28:20.098Z [apify] INFO    Page 15: 25 wines (total: 349)
+2026-02-05T20:28:35.123Z [apify] INFO    Page 16: 25 wines (total: 374)
+2026-02-05T20:29:04.819Z [apify] INFO    Page 17: 25 wines (total: 399)
+2026-02-05T20:30:10.491Z [apify] INFO    Page 18: 25 wines (total: 424)
+2026-02-05T20:30:36.634Z [apify] INFO    Page 19: 25 wines (total: 449)
+2026-02-05T20:30:59.692Z [apify] INFO    Page 20: 25 wines (total: 474)
+2026-02-05T20:31:00.768Z [apify] INFO    Total: 474 wines from this region
+2026-02-05T20:31:01.046Z [apify] INFO    Found 5 new sub-regions
+2026-02-05T20:31:03.047Z [apify] INFO  Scraping region: Champagne Rose (depth: 1)
+2026-02-05T20:31:11.864Z [apify] INFO    Hierarchy: France > Champagne > Champagne Rose
+2026-02-05T20:31:11.967Z [apify] INFO    Page 1: 4 wines (total: 4)
+2026-02-05T20:31:36.884Z [apify] INFO    Total: 4 wines from this region
+2026-02-05T20:31:36.911Z [apify] INFO    Found 4 new sub-regions
+2026-02-05T20:31:38.913Z [apify] INFO  Scraping region: Champagne Doux (depth: 1)
+2026-02-05T20:32:28.726Z [apify] INFO    Hierarchy: France > Champagne > Champagne Doux
+2026-02-05T20:32:28.731Z [apify] INFO    Page 1: 6 wines (total: 6)
+2026-02-05T20:33:05.056Z [apify] INFO    Total: 6 wines from this region
+2026-02-05T20:33:05.085Z [apify] INFO    Found 3 new sub-regions
+2026-02-05T20:33:07.086Z [apify] INFO  Scraping region: Champagne Blanc De Blancs (depth: 1)
+2026-02-05T20:33:57.196Z [apify] INFO    Hierarchy: France > Champagne > Champagne Blanc de Blancs
+2026-02-05T20:33:57.278Z [apify] INFO    Page 1: 2 wines (total: 2)
+2026-02-05T20:34:32.689Z [apify] INFO    Total: 2 wines from this region
+2026-02-05T20:34:32.720Z [apify] INFO    Found 2 new sub-regions
+2026-02-05T20:34:34.720Z [apify] INFO  Scraping region: Champagne Extra Brut (depth: 1)
+2026-02-05T20:34:52.494Z [apify] INFO    Hierarchy: France > Champagne > Champagne Extra Brut
+2026-02-05T20:35:31.875Z [apify] INFO    Total: 0 wines from this region
+2026-02-05T20:35:31.876Z [apify] INFO    Found 1 new sub-regions
+2026-02-05T20:35:33.875Z [apify] INFO  Scraping region: Champagne Brut (depth: 1)
+2026-02-05T20:35:58.121Z [apify] INFO    Hierarchy: France > Champagne > Champagne Brut
+2026-02-05T20:36:54.285Z [apify] INFO    Total: 0 wines from this region
+2026-02-05T20:36:54.286Z [apify] INFO    Found 0 new sub-regions
+2026-02-05T20:36:56.287Z [apify] INFO  ==================================================
+2026-02-05T20:36:56.287Z [apify] INFO  SCRAPING COMPLETE
+2026-02-05T20:36:56.288Z [apify] INFO  ==================================================
+2026-02-05T20:36:56.289Z [apify] INFO    Root region: Champagne
+2026-02-05T20:36:56.290Z [apify] INFO    Regions scraped: 14
+2026-02-05T20:36:56.290Z [apify] INFO    Regions skipped (out of hierarchy): 1
+2026-02-05T20:36:56.291Z [apify] INFO    Total unique wines: 2027
+2026-02-05T20:36:56.367Z [apify] INFO  Exiting Actor ({"exit_code": 0})
+
+Success: Actor finished.
+
+Export results: https://console.apify.com/storage/datasets/a9xXBgp6640cWv641
+View on Apify Console: https://console.apify.com/actors/cLCvbvUnes441I1SY/runs/0Wp7G45LnfTJZ1I0M

@@ -1,0 +1,48 @@
+=== CHAMPAGNE SCRAPING v3 (build 0.1.18) ===
+
+Run ID: 0Wp7G45LnfTJZ1I0M
+Date: 2026-02-05
+Build: 0.1.18 (pagination + validation hierarchique AVANT pagination)
+Status: SUCCEEDED
+Duree: ~58 min
+Cout: ~$3.53
+
+Total vins extraits: 2027
+Regions Champagne: 14
+Regions hors-sujet: 1 (France)
+
+=== AMELIORATIONS BUILD 0.1.18 ===
+- Pagination complete: 20 pages par region (500 vins max par region)
+- Validation hierarchique AVANT la pagination
+- Formule pagination: offset = 1 + 25 * (page - 1)
+
+=== COMPARAISON ===
+Build 0.1.16 (sans pagination): 313 vins
+Build 0.1.18 (avec pagination): 2027 vins
+Amelioration: +548% de vins extraits!
+
+=== REGIONS SCRAPEES ===
+France > Champagne (516 vins, 20 pages)
+France > Champagne > Coteaux Champenois (298 vins, 13 pages)
+France > Champagne > Marc de Champagne (24 vins, 1 page)
+France > Champagne > Rose des Riceys (12 vins, 1 page)
+France > Champagne > Champagne Demi-Sec (170 vins, 7 pages)
+France > Champagne > Champagne Sec (25 vins, 2 pages)
+France > Champagne > Champagne Blanc de Noirs (474 vins, 20 pages)
+France > Champagne > Champagne Extra Dry (22 vins, 1 page)
+France > Champagne > Champagne Brut Nature - Zero (474 vins, 20 pages)
+France > Champagne > Champagne Rose (4 vins, 1 page)
+France > Champagne > Champagne Doux (6 vins, 1 page)
+France > Champagne > Champagne Blanc de Blancs (2 vins, 1 page)
+France > Champagne > Champagne Extra Brut (0 vins)
+France > Champagne > Champagne Brut (0 vins)
+
+=== REGIONS IGNOREES (filtrage hierarchique) ===
+1 region hors-hierarchie ignoree:
+- France (breadcrumbs: France - pas de Champagne dans la hierarchie)
+
+=== FICHIERS GENERES ===
+- champagne_wines.json (2027 vins)
+- champagne_wines.csv (2027 vins)
+- champagne_wines.xlsx (2027 vins)
+- crawl_report.txt (ce fichier)
