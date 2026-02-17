@@ -1,0 +1,61 @@
+{
+    "actorSpecification": 1,
+    "title": "Wine Data",
+    "description": "Wines scraped from Wine-Searcher region pages with rankings, ratings, and prices",
+    "fields": {},
+    "views": {
+        "wines": {
+            "title": "Wines",
+            "description": "All scraped wines with rankings, ratings and prices",
+            "transformation": {
+                "fields": [
+                    "product_name",
+                    "grape",
+                    "popularity",
+                    "critics_score",
+                    "avg_price",
+                    "region",
+                    "product_url",
+                    "source_url"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "product_name": {
+                        "label": "Wine",
+                        "format": "text"
+                    },
+                    "grape": {
+                        "label": "Grape",
+                        "format": "text"
+                    },
+                    "popularity": {
+                        "label": "Popularity",
+                        "format": "text"
+                    },
+                    "critics_score": {
+                        "label": "Critics Score",
+                        "format": "text"
+                    },
+                    "avg_price": {
+                        "label": "Avg. Price",
+                        "format": "text"
+                    },
+                    "region": {
+                        "label": "Region",
+                        "format": "text"
+                    },
+                    "product_url": {
+                        "label": "Wine Link",
+                        "format": "link"
+                    },
+                    "source_url": {
+                        "label": "Source",
+                        "format": "link"
+                    }
+                }
+            }
+        }
+    }
+}

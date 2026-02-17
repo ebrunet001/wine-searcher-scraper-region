@@ -1,0 +1,10 @@
+{
+    "schemaVersion": 1,
+    "events": {
+        "wine-result": {
+            "displayName": "Wine Result",
+            "description": "Each wine extracted from a Wine-Searcher region page (name, grape, ranking, score, price)",
+            "priceUsd": 0.005
+        }
+    }
+}

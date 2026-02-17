@@ -1,63 +1,27 @@
 {
     "actorSpecification": 1,
     "name": "wine-searcher-scraper-region---search-rank-rating-avg-price",
-    "title": "Wine Searcher Scraper Region - Search Rank + Rating + Avg Price",
-    "description": "Scrapes wine data from Wine-Searcher regions including all sub-regions. Extracts Product, Grape, Popularity, Critics' Score, and Avg. Price.",
+    "title": "Wine Searcher Scraper - Region Rankings, Ratings & Prices",
+    "description": "Scrape wine data from Wine-Searcher region pages. Extract product names, grape varieties, popularity rankings, critics scores, and average prices. Supports recursive sub-region crawling with configurable depth and pagination.",
     "version": "0.1",
     "buildTag": "latest",
+    "minMemoryMbytes": 256,
+    "maxMemoryMbytes": 1024,
     "meta": {
-        "templateId": "python-start"
+        "templateId": "python-start",
+        "author": "Emmanuel-Aristide",
+        "categories": ["ECOMMERCE"],
+        "languages": ["EN"]
     },
-    "apifyStoreUrl": "https://apify.com/scrapmania/wine-searcher-scraper-region---search-rank-rating-avg-price",
-    "apifyConsoleUrl": "https://console.apify.com/actors/cLCvbvUnes441I1SY",
+    "seoTitle": "Wine Searcher Scraper | Region Rankings, Ratings & Prices",
+    "seoDescription": "Scrape Wine-Searcher regions: wine rankings, critics scores, prices, grape varieties. Recursive sub-region crawling. Export JSON, CSV or Excel.",
     "input": "./input_schema.json",
+    "output": "./output_schema.json",
     "dockerfile": "./Dockerfile",
     "storages": {
-        "dataset": {
-            "actorSpecification": 1,
-            "title": "Wine Data",
-            "views": {
-                "wines": {
-                    "title": "Wines",
-                    "transformation": {
-                        "fields": [
-                            "product_name",
-                            "product_url",
-                            "grape",
-                            "popularity",
-                            "critics_score",
-                            "avg_price",
-                            "region",
-                            "source_url"
-                        ]
-                    },
-                    "display": {
-                        "component": "table",
-                        "properties": {
-                            "product_name": {
-                                "label": "Product",
-                                "format": "text"
-                            },
-                            "grape": {
-                                "label": "Grape",
-                                "format": "text"
-                            },
-                            "popularity": {
-                                "label": "Popularity",
-                                "format": "text"
-                            },
-                            "critics_score": {
-                                "label": "Critics Score",
-                                "format": "text"
-                            },
-                            "avg_price": {
-                                "label": "Avg. Price",
-                                "format": "text"
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        "dataset": "./dataset_schema.json"
+    },
+    "permissions": {
+        "limitedPermissions": true
     }
 }

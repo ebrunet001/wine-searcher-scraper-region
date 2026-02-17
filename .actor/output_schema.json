@@ -1,0 +1,14 @@
+{
+    "actorOutputSchemaVersion": 1,
+    "title": "Wine Searcher Region Scraper Output",
+    "description": "Output from the Wine Searcher Region Scraper Actor",
+    "type": "object",
+    "properties": {
+        "runUrl": {
+            "type": "string",
+            "title": "Run Details",
+            "description": "Link to the Actor run details page",
+            "template": "{{links.publicRunUrl}}"
+        }
+    }
+}

@@ -63,10 +63,13 @@ class WineSearcherScraper:
         # Root region for hierarchy filtering (set on first page)
         self.root_region: str = ""
 
-        # Get Apify token
+        # Get Apify token (required for SuperScraper API)
         self.apify_token = os.environ.get('APIFY_TOKEN')
         if not self.apify_token:
-            raise ValueError("APIFY_TOKEN environment variable is required")
+            raise ValueError(
+                "APIFY_TOKEN is required. This Actor uses Apify SuperScraper API for fetching pages. "
+                "Run this Actor on the Apify platform or set the APIFY_TOKEN environment variable locally."
+            )
 
     def _extract_region_name(self, url: str) -> str:
         """Extract region name from URL."""
@@ -439,6 +442,12 @@ class WineSearcherScraper:
                     wine_dicts = [asdict(w) for w in wines]
                     await Actor.push_data(wine_dicts)
                     self.wines_scraped += len(wines)
+
+                    # Pay-per-event billing
+                    try:
+                        await Actor.charge('wine-result', count=len(wines))
+                    except Exception as e:
+                        Actor.log.debug(f"Billing charge skipped: {e}")
 
                 self.regions_scraped += 1
 

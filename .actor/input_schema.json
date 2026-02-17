@@ -1,43 +1,52 @@
 {
     "title": "Wine-Searcher Region Scraper Input",
-    "description": "Configure the scraper to extract wine data from a specific region or country on Wine-Searcher.",
+    "description": "Configure the scraper to extract wine data from Wine-Searcher region pages. Set a starting region, choose sorting, and control sub-region depth.",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
         "startUrl": {
             "title": "Start Region URL",
             "type": "string",
-            "description": "The Wine-Searcher region URL to start scraping from. Example: https://www.wine-searcher.com/regions-italy or https://www.wine-searcher.com/regions-burgundy",
+            "description": "The Wine-Searcher region URL to start scraping from. Examples: https://www.wine-searcher.com/regions-burgundy, https://www.wine-searcher.com/regions-italy, https://www.wine-searcher.com/regions-napa+valley",
             "editor": "textfield",
             "prefill": "https://www.wine-searcher.com/regions-burgundy",
-            "pattern": "^https://www\\.wine-searcher\\.com/regions-[a-zA-Z0-9%+\\-]+"
+            "pattern": "^https://www\\.wine-searcher\\.com/regions-[a-zA-Z0-9%+\\-]+",
+            "sectionCaption": "Region",
+            "sectionDescription": "Choose the Wine-Searcher region to scrape"
         },
         "scrapeSubRegions": {
             "title": "Scrape Sub-Regions",
             "type": "boolean",
-            "description": "If enabled, the scraper will recursively scrape all sub-regions of the selected region.",
-            "default": true
+            "description": "If enabled, the scraper will recursively discover and scrape all sub-regions within the selected region. For example, starting from Italy will also scrape Tuscany, Piedmont, Barolo, etc.",
+            "default": true,
+            "editor": "checkbox"
         },
         "maxDepth": {
             "title": "Maximum Depth",
             "type": "integer",
-            "description": "Maximum depth for sub-region crawling. 0 = only the start region, 1 = start region + direct sub-regions, etc.",
+            "description": "How deep to go into sub-regions. 0 = only the start region, 1 = start + direct sub-regions, 2 = two levels deep, etc. Countries like Italy or France can have 5+ levels.",
             "default": 10,
+            "prefill": 3,
             "minimum": 0,
-            "maximum": 20
+            "maximum": 20,
+            "editor": "number",
+            "sectionCaption": "Scraping Options",
+            "sectionDescription": "Control pagination, sorting, and crawl depth"
         },
         "maxPagesPerRegion": {
             "title": "Max Pages per Region",
             "type": "integer",
-            "description": "Maximum number of pagination pages to scrape per region. Each page contains ~25 wines.",
+            "description": "Maximum number of pagination pages to scrape per region. Each page contains ~25 wines. Set to 1 for a quick overview, or 20 for up to 500 wines per region.",
             "default": 20,
+            "prefill": 5,
             "minimum": 1,
-            "maximum": 50
+            "maximum": 50,
+            "editor": "number"
         },
         "tabFilter": {
-            "title": "Wine Sorting Tab",
+            "title": "Wine Sorting",
             "type": "string",
-            "description": "Which wine list to scrape from each region.",
+            "description": "Choose how wines are sorted on each region page.",
             "editor": "select",
             "default": "mostpopular",
             "enum": ["mostpopular", "best", "bestvalue", "mostexpensive", "cheapest"],
@@ -46,10 +55,14 @@
         "requestTimeout": {
             "title": "Request Timeout (seconds)",
             "type": "integer",
-            "description": "Timeout for each HTTP request in seconds.",
-            "default": 60,
+            "description": "Timeout for each HTTP request in seconds. Increase if you experience timeouts on slow pages.",
+            "default": 120,
+            "prefill": 120,
             "minimum": 10,
-            "maximum": 300
+            "maximum": 300,
+            "editor": "number",
+            "sectionCaption": "Advanced",
+            "sectionDescription": "Technical settings for troubleshooting"
         }
     },
     "required": ["startUrl"]
