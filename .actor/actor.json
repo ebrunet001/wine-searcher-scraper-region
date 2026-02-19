@@ -2,7 +2,7 @@
     "actorSpecification": 1,
     "id": "cLCvbvUnes441I1SY",
     "name": "wine-searcher-scraper-region---search-rank-rating-avg-price",
-    "title": "Wine Searcher Scraper - Region Rankings, Ratings & Prices",
+    "title": "Wine Searcher Region Rankings & Prices - SuperScraper",
     "description": "Scrape wine data from Wine-Searcher region pages. Extract product names, grape varieties, popularity rankings, critics scores, and average prices. Supports recursive sub-region crawling with configurable depth and pagination.",
     "version": "0.1",
     "buildTag": "latest",
